@@ -1,5 +1,6 @@
 key: "value"
 home: process.env.HOME 
+require: "ASDF"
 name:
   first: "Jon"
   last: "Morehouse"
