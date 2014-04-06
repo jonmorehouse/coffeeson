@@ -1,0 +1,23 @@
+{
+  "name": "coffeeson",
+  "version": "0.0.0",
+  "description": "Coffeescript / JSON combination",
+  "main": "index.js",
+  "scripts": {
+    "test": "cake test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jonmorehouse/coffeeson.git"
+  },
+  "author": "Jon Morehouse",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonmorehouse/coffeeson/issues"
+  },
+  "homepage": "https://github.com/jonmorehouse/coffeeson",
+  "dependencies": {
+    "extend": "^1.2.1",
+    "nodeunit": "^0.8.6"
+  }
+}
