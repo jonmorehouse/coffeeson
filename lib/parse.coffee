@@ -46,11 +46,12 @@ mergeObjects = (obj, baseObj, opts)->
       # merge (recursively) the baseObj and the newObj
       extend true, obj[key], baseObj[key]
 
-module.exports = (path, cb)->
+module.exports = (filepath, cb)->
   
   # master object that gets handled
-  obj = {require: path}
+  obj = {require: filepath}
   q = null
+  basepath = path.dirname filepath
 
   # handle errors within the local scope
   errorHandler = (err)->
@@ -75,6 +76,8 @@ module.exports = (path, cb)->
       else 
         requirePath = value
         extend = true
+      # normalize requirepath
+      requirePath = if requirePath[0] == "/" then requirePath else path.join basepath, requirePath
       # load requirements file and grab the object it returns
       loadFile requirePath, (err, newObj)->
         return cb err if err

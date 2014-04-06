@@ -19,7 +19,7 @@ global.getFixture = (fixture, convertJson, cb)->
   # handle callback / optional second argument
   if not cb? 
     cb = convertJson
-    convertJson = false
+    convertJson = true
 
   _path = getFixturePath fixture
 

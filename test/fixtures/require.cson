@@ -1,0 +1,5 @@
+require: "base.cson"
+name:
+  first: "first"
+  last: "last"
+  require: "base.cson"
