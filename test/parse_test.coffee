@@ -1,10 +1,14 @@
 require "./bootstrap"
 parse = projectRequire "parse"
 
-exports.test = (test)->
+exports.base_parse_no_opts = (test)->
 
-  p module.name
+    parse getFixturePath("base.cson"), (err, obj)->
 
-  do test.done 
+      do test.done
+
+
+
+
 
 

@@ -18,6 +18,7 @@
   "homepage": "https://github.com/jonmorehouse/coffeeson",
   "dependencies": {
     "extend": "^1.2.1",
-    "nodeunit": "^0.8.6"
+    "nodeunit": "^0.8.6",
+    "async": "^0.6.2"
   }
 }

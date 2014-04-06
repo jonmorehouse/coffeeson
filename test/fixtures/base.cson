@@ -1,0 +1,4 @@
+key: "value"
+home: process.env.HOME 
+
+
