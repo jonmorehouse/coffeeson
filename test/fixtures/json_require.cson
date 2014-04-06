@@ -1,0 +1,4 @@
+require: "base.json"
+name:
+  first: "first"
+  last: "last"

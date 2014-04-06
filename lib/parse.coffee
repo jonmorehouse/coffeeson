@@ -2,6 +2,7 @@ coffee = require 'coffee-script'
 path = require 'path'
 fs = require 'fs'
 async = require 'async'
+extend = require 'extend'
 
 # load a file
 loadFile = (filepath, cb)->
@@ -17,7 +18,7 @@ loadFile = (filepath, cb)->
       cb null, obj
     loadJson = ->
       try
-        obj = JSON.loads str
+        obj = JSON.parse str
       catch err
         return cb err if err
       cb null, obj
@@ -49,7 +50,7 @@ mergeObjects = (obj, baseObj, opts)->
 module.exports = (filepath, cb)->
   
   # master object that gets handled
-  obj = {require: filepath}
+  obj = {}
   q = null
   basepath = path.dirname filepath
 
@@ -65,17 +66,16 @@ module.exports = (filepath, cb)->
 
   # create recurser function
   recurser = (obj, cb)->
-    
     if obj.require?
       # handle the key
       value = obj.require
       # handle the extension
       if typeof value == "object"
         requirePath = value.path
-        extend = if value.extend? then value.extend else true 
+        _extend = if value.extend? then value.extend else true 
       else 
         requirePath = value
-        extend = true
+        _extend = true
       # normalize requirepath
       requirePath = if requirePath[0] == "/" then requirePath else path.join basepath, requirePath
       # load requirements file and grab the object it returns
@@ -94,6 +94,12 @@ module.exports = (filepath, cb)->
   q = async.queue recurser, 4
   q.drain = ->
     cb null, obj
+ 
   # start the first 
-  q.push obj
+  loadFile filepath, (err, newObj)->
+    
+    errorHandler err if err
+    mergeObjects obj, newObj
+    q.push obj, (err)->
+      errorHandler err if err
 

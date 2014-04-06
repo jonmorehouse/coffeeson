@@ -24,11 +24,25 @@ exports.parseEvaluation = (test)->
         do test.done
 
 exports.parseWithRequirements = (test)->
-
   parse getFixturePath("require.cson"), (err, obj)->
     test.equal err, null
     test.notEqual obj, null
     getFixture "require.json", (jsonObj)->
       test.deepEqual obj, jsonObj
       do test.done
+
+exports.parseWithJsonRequirements = (test)->
+  parse getFixturePath("json_require.cson"), (err, obj)->
+    test.equal err, null
+    test.notEqual obj, null
+    getFixture "json_require.json", (jsonObj)->
+      test.deepEqual obj, jsonObj
+      do test.done
+     
+
+
+
+
+
+
 
