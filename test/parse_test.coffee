@@ -1,7 +1,12 @@
 require "./bootstrap"
-#parse = projectRequire "parse"
+parse = projectRequire "parse"
 
-exports.base_parse_no_opts = (test)->
+exports.baseParse = (test)->
+
+  do test.done
+
+
+exports.parseWithRequirements = (test)->
 
   do test.done
 
