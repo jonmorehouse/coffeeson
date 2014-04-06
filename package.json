@@ -19,6 +19,6 @@
   "dependencies": {
     "extend": "^1.2.1",
     "nodeunit": "^0.8.6",
-    "async": "^0.6.2"
+    "async": "git://github.com/jonmorehouse/async"
   }
 }

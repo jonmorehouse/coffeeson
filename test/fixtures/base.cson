@@ -1,4 +1,8 @@
 key: "value"
 home: process.env.HOME 
+name:
+  first: "Jon"
+  last: "Morehouse"
+
 
 

@@ -6,7 +6,7 @@ projectDirectory = path.resolve path.join __dirname, ".."
 
 # global function for requiring a project path
 global.projectRequire = (_path)->
-  return require path.join projectDirectory, "src", _path
+  return require path.join projectDirectory, "lib", _path
 
 global.getFixturePath = (fixture)->
 
