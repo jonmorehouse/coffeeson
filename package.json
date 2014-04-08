@@ -2,7 +2,7 @@
   "name": "coffeeson",
   "version": "0.0.0",
   "description": "Coffeescript / JSON combination",
-  "main": "index.js",
+  "main": "lib/parse.coffee",
   "scripts": {
     "test": "cake test"
   },
