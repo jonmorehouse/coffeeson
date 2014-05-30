@@ -19,6 +19,10 @@
   "dependencies": {
     "extend": "^1.2.1",
     "nodeunit": "^0.8.6",
-    "async": "git://github.com/jonmorehouse/async"
+    "async": "git://github.com/jonmorehouse/async",
+    "coffee-script": "~1.7.1"
+  },
+  "devDependencies": {
+    "nodeunit": "~0.8.8"
   }
 }
